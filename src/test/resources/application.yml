@@ -1,2 +1,12 @@
 com:
   test: dummy
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/employees?useSSL=false
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
