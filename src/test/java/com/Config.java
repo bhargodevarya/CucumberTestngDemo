@@ -1,17 +1,17 @@
-package com.demo;
+package com;
 
+import com.utils.WebUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
-import org.springframework.jdbc.datasource.embedded.EmbeddedDatabase;
-import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
-import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
 
 import javax.sql.DataSource;
-import java.util.Properties;
 
+/**
+ * Spring config class that creates beans that are part of the context
+ */
 @Configuration
 public class Config {
 
@@ -31,5 +31,10 @@ public class Config {
         driverManagerDataSource.setUrl(url);
         driverManagerDataSource.setDriverClassName(driverclass);
         return driverManagerDataSource;
+    }
+
+    @Bean
+    public WebUtils webUtils() {
+        return new WebUtils();
     }
 }

@@ -1,5 +1,8 @@
 package com.demo;
 
+import com.Config;
+import com.cucumber.config.CucumberRunner;
+import cucumber.api.testng.TestNGCucumberRunner;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -35,7 +38,15 @@ public class MyTestNG extends AbstractTestNGSpringContextTests {
     private JdbcTemplate jdbcTemplate;
 
     @Test
-    void firstTest() {
+    void runningCucumberTest() {
+        new TestNGCucumberRunner(CucumberRunner.class).runCukes();
+    }
+
+    /**
+     * Local Mysql should be running for this test to work. Details in the yml file
+     */
+    @Test
+    public void runningTestngTest() {
         log.info("Reading values from pop file >> " + dummy);
         List<Employee> query = jdbcTemplate.query("SELECT * FROM employees WHERE emp_no = ?", new Object[]{10001}, new RowMapper<Employee>() {
             @Override
