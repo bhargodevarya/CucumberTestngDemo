@@ -12,6 +12,5 @@ import org.springframework.test.context.ContextConfiguration;
 @EnableConfigurationProperties
 @ConfigurationProperties
 @ContextConfiguration(initializers = ConfigFileApplicationContextInitializer.class, classes = Config.class)
-@EnableAutoConfiguration
 public class BaseConfig {
 }

@@ -6,11 +6,12 @@ import com.utils.WebUtils;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 import org.testng.Assert;
-import org.apache.log4j.Logger;
 
 import java.io.IOException;
 
@@ -21,7 +22,7 @@ import java.io.IOException;
  */
 public class MyDummyStep extends BaseConfig {
 
-    private static Logger logger = Logger.getLogger(MyDummyStep.class);
+    private static Logger logger = LoggerFactory.getLogger(MyDummyStep.class);
 
     @Autowired
     private WebUtils webUtils;
